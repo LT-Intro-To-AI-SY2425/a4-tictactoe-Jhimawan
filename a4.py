@@ -15,6 +15,12 @@ class TTTBoard:
     
     def __str__(self) -> str:
         return f"{self.board[0-2]} \n {self.board[3-5]} \n {self.board[6-8]}"
+    
+    def make_move(self, player = "", pos = 0):
+        if self.board[pos] is not "*":
+            self.board[pos] = player
+            return True
+        return False
 
 def play_tic_tac_toe() -> None:
     """Uses your class to play TicTacToe"""
