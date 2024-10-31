@@ -21,6 +21,41 @@ class TTTBoard:
             self.board[pos] = player
             return True
         return False
+    
+    def has_won(self, player):
+        b = self.board
+
+        #checks rows
+        if b[0] == b[1] == b[2] == player:
+            return True
+        
+        if b[3] == b[4] == b[5] == player:
+            return True
+        
+        if b[6] == b[7] == b[8] == player:
+            return True
+        
+        #checks columns
+        if b[0] == b[3] == b[6] == player:
+            return True
+        
+        if b[1] == b[4] == b[7] == player:
+            return True
+        
+        if b[2] == b[5] == b[8] == player:
+            return True
+        
+        #checks diagonals
+        if b[0] == b[4] == b[8] == player:
+            return True
+        
+        if b[2] == b[4] == b[6] == player:
+            return True
+        
+        return False
+
+    def game_over(self, ):
+        pass
 
 def play_tic_tac_toe() -> None:
     """Uses your class to play TicTacToe"""
