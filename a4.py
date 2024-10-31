@@ -55,6 +55,8 @@ class TTTBoard:
         return False
 
     def game_over(self, ):
+        if self.board[0-8] == "*":
+            return True
         pass
 
 def play_tic_tac_toe() -> None:
