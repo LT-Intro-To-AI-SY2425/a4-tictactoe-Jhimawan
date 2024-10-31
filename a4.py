@@ -15,8 +15,7 @@ class TTTBoard:
         self.board = board
     
     def __str__(self) -> str:
-        row1 = board[0 - 2]
-    pass
+        return f"{self.board[0-2]} \n {self.board[3-5]} \n {self.board[6-8]}"
 
 
 def play_tic_tac_toe() -> None:
