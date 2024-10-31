@@ -9,14 +9,12 @@ class TTTBoard:
         board - a list of '*'s, 'X's & 'O's. 'X's represent moves by player 'X', 'O's
             represent moves by player 'O' and '*'s are spots no one has yet played on
     """
-    board = ["*", "*", "*", "*", "*", "*", "*", "*", "*", "*"]
 
-    def __init__(self, board) -> None:
-        self.board = board
+    def __init__(self, b = ["*", "*", "*", "*", "*", "*", "*", "*", "*", "*"]) -> None:
+        self.board = b
     
     def __str__(self) -> str:
         return f"{self.board[0-2]} \n {self.board[3-5]} \n {self.board[6-8]}"
-
 
 def play_tic_tac_toe() -> None:
     """Uses your class to play TicTacToe"""
