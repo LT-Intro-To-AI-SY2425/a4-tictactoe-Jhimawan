@@ -16,7 +16,7 @@ class TTTBoard:
     def __str__(self) -> str:
         return f"{self.board[0-2]} \n {self.board[3-5]} \n {self.board[6-8]}"
     
-    def make_move(self, player = "", pos = 0):
+    def make_move(self, player, pos):
         if self.board[pos] != "*":
             self.board[pos] = player
             return True
@@ -57,36 +57,14 @@ class TTTBoard:
     def game_over(self, ):
         b = self.board
 
-        if b[0] == b[1] == b[2]:
+        if self.has_won("X") or self.has_won("O"):
             return True
         
-        if b[3] == b[4] == b[5]:
-            return True
+        for x in b:
+            if x in "*":
+                return False
         
-        if b[6] == b[7] == b[8]:
-            return True
-        
-        #checks columns
-        if b[0] == b[3] == b[6]:
-            return True
-        
-        if b[1] == b[4] == b[7]:
-            return True
-        
-        if b[2] == b[5] == b[8]:
-            return True
-        
-        #checks diagonals
-        if b[0] == b[4] == b[8]:
-            return True
-        
-        if b[2] == b[4] == b[6]:
-            return True
-        
-        if b[0-8] != "*":
-            return True
-        
-        return False
+        return True
     
     def clear(self):
         self.board[0-8] = "*"
