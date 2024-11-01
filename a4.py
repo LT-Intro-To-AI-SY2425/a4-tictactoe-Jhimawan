@@ -17,7 +17,7 @@ class TTTBoard:
         return f"{self.board[0-2]} \n {self.board[3-5]} \n {self.board[6-8]}"
     
     def make_move(self, player = "", pos = 0):
-        if self.board[pos] is not "*":
+        if self.board[pos] != "*":
             self.board[pos] = player
             return True
         return False
