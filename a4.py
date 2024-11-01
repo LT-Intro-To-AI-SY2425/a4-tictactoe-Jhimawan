@@ -55,9 +55,38 @@ class TTTBoard:
         return False
 
     def game_over(self, ):
-        if self.board[0-8] == "*":
+        b = self.board
+
+        if b[0] == b[1] == b[2]:
             return True
-        pass
+        
+        if b[3] == b[4] == b[5]:
+            return True
+        
+        if b[6] == b[7] == b[8]:
+            return True
+        
+        #checks columns
+        if b[0] == b[3] == b[6]:
+            return True
+        
+        if b[1] == b[4] == b[7]:
+            return True
+        
+        if b[2] == b[5] == b[8]:
+            return True
+        
+        #checks diagonals
+        if b[0] == b[4] == b[8]:
+            return True
+        
+        if b[2] == b[4] == b[6]:
+            return True
+        
+        if b[0-8] != "*":
+            return True
+        
+        return False
     
     def clear(self):
         self.board[0-8] = "*"
