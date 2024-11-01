@@ -58,6 +58,9 @@ class TTTBoard:
         if self.board[0-8] == "*":
             return True
         pass
+    
+    def clear(self):
+        self.board[0-8] = "*"
 
 def play_tic_tac_toe() -> None:
     """Uses your class to play TicTacToe"""
