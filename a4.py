@@ -14,10 +14,14 @@ class TTTBoard:
         self.board = b
     
     def __str__(self) -> str:
-        return f"{self.board[0-2]} \n {self.board[3-5]} \n {self.board[6-8]}"
+        board = self.board
+        brd = ""
+        for x in [0, 3, 6]:
+            brd += board[x + 0] + " " + board[x + 1] + " " + board[x + 2] + "\n"
+        return brd
     
     def make_move(self, player, pos):
-        if self.board[pos] != "*":
+        if self.board[pos] == "*":
             self.board[pos] = player
             return True
         return False
@@ -67,7 +71,7 @@ class TTTBoard:
         return True
     
     def clear(self):
-        self.board[0-8] = "*"
+        self.board = ["*"] * 9
 
 def play_tic_tac_toe() -> None:
     """Uses your class to play TicTacToe"""
@@ -116,7 +120,10 @@ if __name__ == "__main__":
     # here are some tests. These are not at all exhaustive tests. You will DEFINITELY
     # need to write some more tests to make sure that your TTTBoard class is behaving
     # properly.
+
     brd = TTTBoard()
+    print(brd)
+
     brd.make_move("X", 8)
     brd.make_move("O", 7)
 
@@ -126,17 +133,23 @@ if __name__ == "__main__":
     brd.make_move("O", 6)
     brd.make_move("X", 2)
 
+    print(brd)
+
     assert brd.has_won("X") == True
     assert brd.has_won("O") == False
     assert brd.game_over() == True
 
     brd.clear()
 
+    print(brd)
+
     assert brd.game_over() == False
 
     brd.make_move("O", 3)
     brd.make_move("O", 4)
     brd.make_move("O", 5)
+
+    print(brd)
 
     assert brd.has_won("X") == False
     assert brd.has_won("O") == True
